@@ -29,5 +29,14 @@
     <ClInclude Include="information.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="breakpoints.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pe_flags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="page_guard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

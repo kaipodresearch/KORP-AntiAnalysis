@@ -3,34 +3,47 @@
 // http://kaipod.ir
 
 #include "global.h"
-#include "process_enum.h"
 #include "information.h"
+#include "process_enum.h"
+#include "pe_flags.h"
+#include "breakpoints.h"
+#include "page_guard.h"
 
 int main(int argc, const char argv[])
 {
 	print::red(NAME);
-	std::cout << color_range::green << "\t[Project]:\t" << color_range::yellow << PROJECT << " " ARCHITECTURE << color_range::reset << "\n";
-	std::cout << color_range::green << "\t[Address]:\t" << color_range::yellow << PAGE << color_range::reset << "\n\n";
+	std::cout << color_range::green << "\t[ Project ]:\t" << color_range::yellow << PROJECT << " " ARCHITECTURE << color_range::reset << "\n";
+	std::cout << color_range::green << "\t[ Address ]:\t" << color_range::yellow << PAGE << color_range::reset << "\n";
+	std::cout << color_range::green << "\t[ Coder   ]:\t" << color_range::yellow << "Milad Kahsari Alhadi - clightning" << color_range::reset << "\n\n";
 
+	print::blue("Anti-Debugging Solutions:");
+	print::red("Debugger's Flags");
+	print::result("\tCheckRemoteDebuggerPresent:\t", enumeration::remote_debuger::check());
+	print::result("\tIsDebugerPresent:\t\t", enumeration::debuger_present::check());
+	print::result("\tBeingDebuged Flag:\t\t", pe::flags::being_debuged::check());
+	print::result("\tNtGlobalFlag Flag:\t\t", pe::flags::ntglobal::check());
+	print::result("\tProcess Heap Flags: \t\t", pe::flags::heap::check());
+	print::result("\tProcess Heap Force Flags:\t", pe::flags::force::check());
+	print::result("\tDebug Port Check:\t\t", pe::flags::debug_port::check());
+	print::result("\tProcess Debug Object:\t\t", pe::flags::debug_object::check());
+	print::break_line();
 
-	print::blue("Anti Debugging Check");
-	print::red("Debug's Flags");
-	print::result("\tCheckRemoteDebuggerPresent:\t", enumeration::remote_debuger_present());
-	print::result("\tIsDebugerPresent:\t\t", enumeration::debuger_present());
-	print::result("\tBeingDebuged Flag:\t\t", enumeration::being_debug_flag());
-	print::result("\tNtGlobalFlag Flag:\t\t", enumeration::ntglobal_flag());
-	print::result("\tProcess Heap Flags: \t\t", enumeration::heap_flags());
-	print::result("\tProcess Heap Force Flags:\t", enumeration::heap_force_flags());
-	print::result("\tDebug Port Check:\t\t", enumeration::process_debugport());
-	print::result("\tProcess Debug Object:\t\t", enumeration::process_debug_object());
+	print::red("Debugger's Process");
+	print::result("\t[Ollydbg Process]:\t\t", enumeration::check(L"ollydbg.exe"));
+	print::result("\t[x32dbg Process]:\t\t", enumeration::check(L"x32dbg.exe"));
+	print::result("\t[x64dbg Process]:\t\t", enumeration::check(L"x64dbg.exe"));
+	print::break_line();
+	
+	print::red("Debugger's Breakpoint");
+	print::result("\tSoftware Breakpoint - 0xCC:\t", breakpoint::software::check());
+	print::break_line();
+
+	print::red("Debugger's Memory Check");
+	print::result("\tPage Guard Protection:\t\t", memory::page_guard::check());
+	print::result("\tRead Process Memory Exception:\t", memory::read_access::check());
 
 	print::break_line();
-	print::red("Debugger's Process");
-	print::result("\t[Ollydbg Process]:\t\t", enumeration::processes(L"ollydbg.exe"));
-	print::result("\t[x32dbg Process]:\t\t", enumeration::processes(L"x32dbg.exe"));
-	print::result("\t[x64dbg Process]:\t\t", enumeration::processes(L"x64dbg.exe"));
 
-	
 	std::cin.get();
 	return 0;
 }

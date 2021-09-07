@@ -1,12 +1,16 @@
 #pragma once
 
 #include <windows.h>
-#include <iostream>
 #include <psapi.h>
 #include <tlhelp32.h>
 #include <wdbgexts.h>
 #include <winternl.h>
 #include <VersionHelpers.h>
+
+
+#include <iostream>
+#include <vector>
+
 
 #if _WIN32 || _WIN64
 #if _WIN64
@@ -14,6 +18,12 @@
 #else
 #define x86
 #endif
+#endif
+
+#ifdef _DEBUG
+#define ODebugString(S) OutputDebugString(S)
+#else
+#define ODebugString(S) do {} while(0);
 #endif
 
 enum class color_range : uint16_t {

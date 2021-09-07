@@ -142,8 +142,11 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="breakpoints.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="information.h" />
+    <ClInclude Include="page_guard.h" />
+    <ClInclude Include="pe_flags.h" />
     <ClInclude Include="process_enum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
