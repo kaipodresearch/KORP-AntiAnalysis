@@ -1,2 +1,2 @@
-# KORP-AntiAnalysis
-It is a software-based package to detect analysis environment and approaches of binaries in Windows OS.
+# KORP - Anti Analysis
+It is a program that has been developing to cover binary analysis approaches and methods. It is completely written with C++ for Windows environment. 
