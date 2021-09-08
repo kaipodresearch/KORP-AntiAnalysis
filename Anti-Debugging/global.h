@@ -135,8 +135,14 @@ namespace print
 
     void result(std::string arg_caption, bool arg_result)
     {
-        std::cout << std::boolalpha << color_range::green << "\t" << arg_caption 
-            << color_range::white << arg_result << color_range::reset << "\n";
+        if (arg_result = true)
+        {
+            std::cout << color_range::green << "\t" << arg_caption << color_range::white << "Detected" << color_range::reset << "\n";
+        }
+        else
+        {
+			std::cout << color_range::green << "\t" << arg_caption << color_range::white << "Unknown" << color_range::reset << "\n";
+        }
     }
 
     void break_line()

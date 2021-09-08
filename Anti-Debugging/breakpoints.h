@@ -33,6 +33,30 @@ namespace breakpoint
 
 	namespace hardware
 	{
-	
+		bool check()
+		{
+			bool result = false;
+
+			PCONTEXT context = PCONTEXT(VirtualAlloc(NULL, sizeof(CONTEXT), MEM_COMMIT, PAGE_READWRITE));
+
+			if (context) 
+			{
+				SecureZeroMemory(context, sizeof(CONTEXT));
+
+				context->ContextFlags = CONTEXT_DEBUG_REGISTERS;
+
+				if (GetThreadContext(GetCurrentThread(), context)) 
+				{
+					if (context->Dr0 != 0 || context->Dr1 != 0 || context->Dr2 != 0 || context->Dr3 != 0)
+					{
+						result = true;
+					}
+				}
+
+				VirtualFree(context, 0, MEM_RELEASE);
+			}
+
+			return result;
+		}
 	}
 }

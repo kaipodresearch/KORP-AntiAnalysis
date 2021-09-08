@@ -35,12 +35,14 @@ int main(int argc, const char argv[])
 	print::break_line();
 	
 	print::red("Debugger's Breakpoint");
-	print::result("\tSoftware Breakpoint - 0xCC:\t", breakpoint::software::check());
+	print::result("\tSoftware Breakpoint:\t\t", breakpoint::software::check());
+	print::result("\tHardware Breakpoint:\t\t", breakpoint::software::check());
+
 	print::break_line();
 
 	print::red("Debugger's Memory Check");
 	print::result("\tPage Guard Protection:\t\t", memory::page_guard::check());
-	print::result("\tRead Process Memory Exception:\t", memory::read_access::check());
+	print::result("\tRead Memory Access:\t\t", memory::read_access::check());
 
 	print::break_line();
 
