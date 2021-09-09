@@ -24,8 +24,8 @@ namespace pe
 
 #endif
 
-				BOOL normal_detected = nt_global_flag && *nt_global_flag & 0x00000070;
-				BOOL wow64_detected = nt_global_flag_wow64 && *nt_global_flag_wow64 & 0x00000070;
+				bool normal_detected = nt_global_flag && *nt_global_flag & 0x00000070;
+				bool wow64_detected = nt_global_flag_wow64 && *nt_global_flag_wow64 & 0x00000070;
 
 				if (normal_detected || wow64_detected)
 					return true;
@@ -196,7 +196,7 @@ namespace pe
 
 		namespace debug_inherit
 		{
-			BOOL check()
+			bool check()
 			{
 				HMODULE ntdll_handle = LoadLibraryA("ntdll.dll");
 

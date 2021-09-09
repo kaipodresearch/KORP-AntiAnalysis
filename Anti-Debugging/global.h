@@ -8,9 +8,11 @@
 #include <VersionHelpers.h>
 
 
-#include <iostream>
+// Standard Library
 #include <vector>
-
+#include <string>
+#include <iostream>
+#include <iomanip>
 
 #if _WIN32 || _WIN64
 #if _WIN64
@@ -135,7 +137,7 @@ namespace print
 
     void result(std::string arg_caption, bool arg_result)
     {
-        if (arg_result = true)
+        if (arg_result == true)
         {
             std::cout << color_range::green << "\t" << arg_caption << color_range::white << "Detected" << color_range::reset << "\n";
         }

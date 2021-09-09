@@ -38,5 +38,8 @@
     <ClInclude Include="page_guard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="verification.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

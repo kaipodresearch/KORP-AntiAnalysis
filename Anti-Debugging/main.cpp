@@ -8,6 +8,7 @@
 #include "pe_flags.h"
 #include "breakpoints.h"
 #include "page_guard.h"
+#include "verification.h"
 
 int main(int argc, const char argv[])
 {
@@ -36,7 +37,7 @@ int main(int argc, const char argv[])
 	
 	print::red("Debugger's Breakpoint");
 	print::result("\tSoftware Breakpoint:\t\t", breakpoint::software::check());
-	print::result("\tHardware Breakpoint:\t\t", breakpoint::software::check());
+	print::result("\tHardware Breakpoint:\t\t", breakpoint::hardware::check());
 
 	print::break_line();
 
