@@ -4,20 +4,6 @@ namespace breakpoint
 {
 	namespace software
 	{
-		void critical_function()
-		{
-			int variable_one = 1;
-			int variable_two = 2;
-			int variable_thr = variable_one + variable_two;
-			std::printf("%d", variable_thr);
-
-		}
-
-		void adjacent_critical_function()
-		{
-			critical_function();
-		};
-
 		bool check()
 		{
 			bool result = false;
