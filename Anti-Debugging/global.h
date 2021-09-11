@@ -7,7 +7,6 @@
 #include <winternl.h>
 #include <VersionHelpers.h>
 
-
 // Standard Library
 #include <vector>
 #include <string>
@@ -27,6 +26,7 @@
 #else
 #define ODebugString(S) do {} while(0);
 #endif
+
 
 enum class color_range : uint16_t {
     grey
@@ -139,11 +139,11 @@ namespace print
     {
         if (arg_result == true)
         {
-            std::cout << color_range::green << "\t" << arg_caption << color_range::white << "Detected" << color_range::reset << "\n";
+            std::cout << color_range::green << "\t" << arg_caption << color_range::magenta << "[Detected]" << color_range::reset << "\n";
         }
         else
         {
-			std::cout << color_range::green << "\t" << arg_caption << color_range::white << "Unknown" << color_range::reset << "\n";
+			std::cout << color_range::green << "\t" << arg_caption << color_range::cyan << "[Unknown]" << color_range::reset << "\n";
         }
     }
 

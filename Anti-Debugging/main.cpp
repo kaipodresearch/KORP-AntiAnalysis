@@ -30,21 +30,20 @@ int main(int argc, const char argv[])
 	print::break_line();
 
 	print::red("Debugger's Process");
-	print::result("\t[Ollydbg Process]:\t\t", enumeration::check(L"ollydbg.exe"));
-	print::result("\t[x32dbg Process]:\t\t", enumeration::check(L"x32dbg.exe"));
-	print::result("\t[x64dbg Process]:\t\t", enumeration::check(L"x64dbg.exe"));
+	print::result("\tOllydbg Process:\t\t", enumeration::check(L"ollydbg.exe"));
+	print::result("\tx32dbg Process:\t\t\t", enumeration::check(L"x32dbg.exe"));
+	print::result("\tx64dbg Process:\t\t\t", enumeration::check(L"x64dbg.exe"));
 	print::break_line();
 	
 	print::red("Debugger's Breakpoint");
 	print::result("\tSoftware Breakpoint:\t\t", breakpoint::software::check());
 	print::result("\tHardware Breakpoint:\t\t", breakpoint::hardware::check());
-
 	print::break_line();
 
 	print::red("Debugger's Memory Check");
 	print::result("\tPage Guard Protection:\t\t", memory::page_guard::check());
 	print::result("\tRead Memory Access:\t\t", memory::read_access::check());
-
+	print::result("\tINT2 Exception Breakpoint:\t", memory::int2d::check());
 	print::break_line();
 
 	std::cin.get();

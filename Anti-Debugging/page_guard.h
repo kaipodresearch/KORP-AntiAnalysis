@@ -1,6 +1,5 @@
 #pragma once
 
-
 namespace memory
 {
 	namespace page_guard
@@ -10,7 +9,7 @@ namespace memory
 			UCHAR* memory_pointer = NULL;
 			SYSTEM_INFO system_info = { 0 };
 			DWORD old_protection = 0;
-			PVOID allocation = NULL; 
+			PVOID allocation = NULL;
 
 			GetSystemInfo(&system_info);
 
@@ -30,7 +29,7 @@ namespace memory
 
 			__try
 			{
-				((void(*)())allocation)(); 
+				((void(*)())allocation)();
 			}
 			__except (GetExceptionCode() == STATUS_GUARD_PAGE_VIOLATION ? EXCEPTION_EXECUTE_HANDLER : EXCEPTION_CONTINUE_SEARCH)
 			{
@@ -103,6 +102,26 @@ namespace memory
 				}
 			}
 			return false;
+		}
+	}
+	namespace int2d
+	{
+		bool check()
+		{
+			__try
+			{
+				__asm
+				{
+					xor eax, eax
+					int 0x2d
+					nop
+				}
+				return true;
+			}
+			__except (EXCEPTION_EXECUTE_HANDLER)
+			{
+				return false;
+			}
 		}
 	}
 }
