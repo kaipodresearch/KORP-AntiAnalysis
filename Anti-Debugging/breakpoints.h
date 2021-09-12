@@ -13,7 +13,7 @@ namespace breakpoint
 			DWORD required_size = sizeof(PSAPI_WORKING_SET_INFORMATION) * (working_set_info.NumberOfEntries + 20);
 			PPSAPI_WORKING_SET_INFORMATION p_working_set_info = (PPSAPI_WORKING_SET_INFORMATION)VirtualAlloc(0, required_size, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
 			QueryWorkingSet(GetCurrentProcess(), p_working_set_info, required_size);
-			for (int i = 0; i < p_working_set_info->NumberOfEntries; i++)
+			for (SIZE_T i = 0; i < p_working_set_info->NumberOfEntries; i++)
 			{
 				PVOID physical_address = (PVOID)(p_working_set_info->WorkingSetInfo[i].VirtualPage * 4096);
 				MEMORY_BASIC_INFORMATION memory_info;

@@ -20,8 +20,8 @@ int main(int argc, const char argv[])
 
 	print::blue("Anti-Debugging Solutions:");
 	print::red("Debugger's Flags");
-	print::result("\tCheckRemoteDebuggerPresent:\t\t", enumeration::remote_debuger::check());
-	print::result("\tIsDebugerPresent:\t\t\t", enumeration::debuger_present::check());
+	print::result("\tCheckRemoteDebuggerPresent:\t\t", pe::flags::remote_debuger::check());
+	print::result("\tIsDebugerPresent:\t\t\t", pe::flags::debuger_present::check());
 	print::result("\tBeingDebuged Flag:\t\t\t", pe::flags::being_debuged::check());
 	print::result("\tNtGlobalFlag Flag:\t\t\t", pe::flags::ntglobal::check());
 	print::result("\tProcess Heap Flags: \t\t\t", pe::flags::heap::check());

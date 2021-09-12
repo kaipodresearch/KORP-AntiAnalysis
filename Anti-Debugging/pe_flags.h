@@ -4,6 +4,27 @@ namespace pe
 {
 	namespace flags
 	{
+		namespace debuger_present
+		{
+			bool check()
+			{
+				return IsDebuggerPresent();
+			}
+		}
+
+		namespace remote_debuger
+		{
+			bool check()
+			{
+				BOOL result = false;
+				CheckRemoteDebuggerPresent(GetCurrentProcess(), &result);
+				if (result)
+					return true;
+				else
+					return false;
+			}
+		}
+
 		namespace ntglobal
 		{
 			bool check()
