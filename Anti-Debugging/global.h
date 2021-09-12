@@ -6,6 +6,7 @@
 #include <wdbgexts.h>
 #include <winternl.h>
 #include <VersionHelpers.h>
+#include <winuser.h>
 
 // Standard Library
 #include <vector>
@@ -27,6 +28,16 @@
 #define ODebugString(S) do {} while(0);
 #endif
 
+#pragma comment(lib, "wbemuuid.lib")
+#pragma comment(lib, "Shlwapi.lib")
+#pragma comment(lib, "Mpr.lib")
+#pragma comment(lib, "Iphlpapi.lib")
+#pragma comment(lib, "Shlwapi.lib")
+#pragma comment(lib, "Psapi.lib")
+#pragma comment(lib, "wbemuuid.lib")
+#pragma comment(lib, "Winmm.lib")
+#pragma comment(lib, "setupapi.lib")
+#pragma comment(lib, "powrprof.lib")
 
 enum class color_range : uint16_t {
     grey
@@ -154,8 +165,15 @@ namespace print
 
 }
 
-
-
-// Signature definition
-
+// Low-level system call signature definition
 typedef NTSTATUS(WINAPI* pNtQueryInformationProcess)(IN  HANDLE, IN  UINT, OUT PVOID, IN ULONG, OUT PULONG);
+
+
+// Low-level struct of windows
+typedef struct _KORP_PROCESS_BASIC_INFORMATION {
+	PVOID Reserved1;
+	void* PebBaseAddress;
+	PVOID Reserved2[2];
+	ULONG_PTR UniqueProcessId;
+	ULONG_PTR ParentProcessId;
+} KORP_PROCESS_BASIC_INFORMATION;

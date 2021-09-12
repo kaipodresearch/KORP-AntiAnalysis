@@ -106,22 +106,6 @@ namespace memory
 	}
 	namespace int2d
 	{
-		bool check()
-		{
-			__try
-			{
-				__asm
-				{
-					xor eax, eax
-					int 0x2d
-					nop
-				}
-				return true;
-			}
-			__except (EXCEPTION_EXECUTE_HANDLER)
-			{
-				return false;
-			}
-		}
+		
 	}
 }
