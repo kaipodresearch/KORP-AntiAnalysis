@@ -1,5 +1,7 @@
 #pragma once
 
+#include <intrin.h>
+
 namespace breakpoint
 {
 	namespace software

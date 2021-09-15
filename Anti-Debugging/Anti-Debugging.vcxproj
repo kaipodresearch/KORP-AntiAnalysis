@@ -159,7 +159,7 @@
     <ClInclude Include="interrupt.h" />
     <ClInclude Include="page_guard.h" />
     <ClInclude Include="pe_flags.h" />
-    <ClInclude Include="process_enum.h" />
+    <ClInclude Include="pe_info.h" />
     <ClInclude Include="verification.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

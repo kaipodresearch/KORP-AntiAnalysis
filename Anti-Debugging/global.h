@@ -12,7 +12,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <iomanip>
+
 
 #if _WIN32 || _WIN64
 #if _WIN64
@@ -167,6 +167,8 @@ namespace print
 
 // Low-level system call signature definition
 typedef NTSTATUS(WINAPI* pNtQueryInformationProcess)(IN  HANDLE, IN  UINT, OUT PVOID, IN ULONG, OUT PULONG);
+typedef NTSTATUS(WINAPI* pNtQueryInformationThread)(HANDLE, UINT, PVOID, ULONG, PULONG);
+typedef NTSTATUS(WINAPI* pNtSetInformationThread)(HANDLE, UINT, PVOID, ULONG);
 
 
 // Low-level struct of windows
