@@ -26,6 +26,22 @@ namespace os
 				CloseHandle(snapshot);
 			}
 		}
+		namespace gui
+		{
+			bool check()
+			{
+				if (FindWindowA("WinDbgFrameClass", NULL))
+					return true;
+				else if (FindWindowA("OllyDbg", NULL))
+					return true;
+				else if (FindWindowA("Qt5QWindowIcon", NULL))
+					return true;
+				else if (FindWindowA("ID", NULL))
+					return true;
+				else
+					return false;
+			}
+		}
 		namespace debug_port
 		{
 			bool check()
